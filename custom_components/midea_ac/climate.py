@@ -67,7 +67,7 @@ async def async_setup_platform(hass, config, async_add_entities,
 
     client = midea_device(device_ip, int(device_id), device_port)
     device = client.setup()
-    device._keep_last_known_online_state = keep_last_known_online_state
+    device.keep_last_known_online_state = keep_last_known_online_state
     entities = []
     entities.append(MideaClimateACDevice(
             hass, device, temp_step, include_off_as_state,
